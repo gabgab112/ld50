@@ -43,3 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c421f1784d7343881f27a2398fe35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
+  currentScene: 
+  lastLevelName: Level35
+  currentLevelID: 0
+  notALevel:
+  - MainMenu
+  - Credits
+  defaultVolume: 0.9
+  currentVolume: 0.9
+  levelManager: {fileID: 0}

@@ -23,7 +23,7 @@ public class VolumeSlider : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Volume"))
         {
-            PlayerPrefs.SetFloat("Volume", 0.4f);
+            PlayerPrefs.SetFloat("Volume", GameManager.Instance.currentVolume);
             LoadVolume();
         }
         else

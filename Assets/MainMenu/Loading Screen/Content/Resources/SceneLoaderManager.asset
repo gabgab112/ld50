@@ -30,5 +30,13 @@ MonoBehaviour:
       LoadingType: 1
       FakeLoadingTime: 1
       Backgrounds: []
+    - SceneName: Credits
+      SceneAsset: {fileID: 102900000, guid: 2bad42782f9a4c64ea73647ae7243fa4, type: 3}
+      DisplayName: Credits
+      Description: 
+      SkipType: 3
+      LoadingType: 1
+      FakeLoadingTime: 1
+      Backgrounds: []
   TipList:
     array: []

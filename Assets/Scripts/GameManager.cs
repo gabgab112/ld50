@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public string currentScene;
     public string lastLevelName = "Level35";
     public int currentLevelID;
+    public List<string> notALevel = new List<string>();
 
     [Header("Volume")]
     public float defaultVolume = 0.9f;
@@ -55,6 +56,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1;
+
+        //if (Player.Instance != null)
+        //    Destroy(Player.Instance.gameObject);
+
+        if (UIManager.Instance != null)
+            Destroy(UIManager.Instance.gameObject);
+
+        bl_SceneLoaderUtils.GetLoader.LoadLevel("MainMenu");
+        Destroy(gameObject);
+    }
+
     public void CursorLock()
     {
         Cursor.visible = false;
@@ -71,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         currentScene = scene.name;
 
-        if (currentScene != "MainMenu")
+        if (!notALevel.Contains(currentScene))
         {
             gameState = GameState.Playing;
 
@@ -83,6 +98,10 @@ public class GameManager : MonoBehaviour
             //GetComponents();
 
             UIManager.Instance.SetStartUI();
+        }
+        else
+        {
+            // Not a level
         }
 
         //SoundManager.Instance.ChangeSoundtrackByLevel();
