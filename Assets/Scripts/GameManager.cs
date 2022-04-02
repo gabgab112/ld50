@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
 {
     [Header("State")]
     public GameState gameState;
-    public enum GameState { Playing, Pause, GameOver };
+    public enum GameState { Start, Playing, Pause, GameOver };
+
+    [Header("Gameplay")]
+    public int money;
+    public int currentDistance;
+    //public int recordDistance;
 
     [Header("Scene")]
     public string currentScene;
-    public string lastLevelName = "Level35";
-    public int currentLevelID;
     public List<string> notALevel = new List<string>();
 
     [Header("Volume")]
@@ -88,7 +91,10 @@ public class GameManager : MonoBehaviour
 
         if (!notALevel.Contains(currentScene))
         {
-            gameState = GameState.Playing;
+            StartCoroutine(StartGame());
+
+            currentDistance = 0;
+
 
             // Get Current Level
             //currentLevelID = Int32.Parse(currentScene.Remove(0, 5));
@@ -105,6 +111,13 @@ public class GameManager : MonoBehaviour
         }
 
         //SoundManager.Instance.ChangeSoundtrackByLevel();
+    }
+
+    IEnumerator StartGame()
+    {
+        gameState = GameState.Start;
+        yield return new WaitForSeconds(3f);
+        gameState = GameState.Playing;
     }
 
     void OnEnable()

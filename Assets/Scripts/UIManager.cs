@@ -12,12 +12,15 @@ public class UIManager : MonoBehaviour
     public GameObject hudPanel;
     public GameObject pausePanel;
     public GameObject fadeIn;
+    public GameObject gameOverPanel;
+    public GameObject hurt;
     [Space(20)]
 
     [Header("HUD")]
     [SerializeField] TextMeshProUGUI inputText;
     [SerializeField] UITypewriter actionInputTyping;
-    [SerializeField] TextMeshProUGUI levelCounter;
+    [SerializeField] TextMeshProUGUI moneyText;
+    [SerializeField] TextMeshProUGUI distanceText;
 
     [Space(20)]
 
@@ -66,20 +69,24 @@ public class UIManager : MonoBehaviour
 
         //UpdateInputText("");
         SetEmptyInputText();
-        UpdateLevelCounter();
+        UpdateMoney();
 
         fadeIn.SetActive(true);
 
         // HUD
-        if(GameManager.Instance.currentScene != "MainMenu" && GameManager.Instance.currentScene != "LastScreen")
+        if(!GameManager.Instance.notALevel.Contains(GameManager.Instance.currentScene))
         {
+            hurt.SetActive(false);
             hudPanel.SetActive(true);
             pausePanel.SetActive(false);
+            gameOverPanel.SetActive(false);
         }
         else
         {
+            hurt.SetActive(false);
             hudPanel.SetActive(false);
             pausePanel.SetActive(false);
+            gameOverPanel.SetActive(false);
         }
         
 
@@ -94,6 +101,8 @@ public class UIManager : MonoBehaviour
         fadeIn.SetActive(false);
     }
 
+
+    #region Pause
     public void Pause()
     {
         pausePanel.SetActive(true);
@@ -149,7 +158,29 @@ public class UIManager : MonoBehaviour
         bl_SceneLoaderUtils.GetLoader.LoadLevel("MainMenu");
         Destroy(gameObject);
     }
+    #endregion
 
+    public void HurtUI()
+    {
+        hurt.SetActive(true);
+    }
+
+    public void GameOverUI()
+    {
+        hurt.SetActive(false);
+        hudPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
+
+    public void RestartGame()
+    {
+        GameManager.Instance.Restart();
+    }
+
+
+    #region Buttons Sounds
     public void Hover()
     {
         audioSource.PlayOneShot(hover);
@@ -169,12 +200,16 @@ public class UIManager : MonoBehaviour
     {
         audioSource.PlayOneShot(special);
     }
+    #endregion
 
+
+    #region Update Texts
     public void UpdateInputText(string _text)
     {
         //inputText.text = _text;
         actionInputTyping.SetText(_text);
     }
+
     public void SetEmptyInputText()
     {
         inputText.text = "";
@@ -183,24 +218,15 @@ public class UIManager : MonoBehaviour
             actionInputTyping.SetText("");
     }
 
-    public void UpdateLevelCounter()
+    public void UpdateMoney()
     {
-        if(GameManager.Instance.currentScene != GameManager.Instance.lastLevelName)
-        {
-            levelCounter.text = GameManager.Instance.currentLevelID.ToString();
-        }
-        else
-        {
-            levelCounter.gameObject.SetActive(false);
-        }
+        moneyText.text = GameManager.Instance.money.ToString() + "$";
     }
 
-    //public bool IsPointerOverUIObject()
-    //{
-    //    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-    //    eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-    //    List<RaycastResult> results = new List<RaycastResult>();
-    //    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-    //    return results.Count > 0;
-    //}
+    public void UpdateDistance()
+    {
+        distanceText.text = GameManager.Instance.currentDistance.ToString() + "m";
+    }
+    #endregion
+
 }
