@@ -91,7 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Sky
+  - name: Ground
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -102,7 +102,7 @@ ScriptedImporter:
       y: 4
       width: 3840
       height: 2160
-    spriteID: a02b93377471236428214ddcb3ec093f
+    spriteID: 4f2eec9b564279642897d7bb3a37b731
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -172,12 +172,12 @@ ScriptedImporter:
     spriteID: b1093a48fe2e8f24d841c94009bfbde8
     layerID: 8
     mosaicPosition: {x: 4, y: 2172}
-  - name: Sky
-    spriteName: Sky
+  - name: Ground
+    spriteName: Ground
     isGroup: 0
     parentIndex: -1
-    spriteID: a02b93377471236428214ddcb3ec093f
-    layerID: 2
+    spriteID: 4f2eec9b564279642897d7bb3a37b731
+    layerID: 3
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []
