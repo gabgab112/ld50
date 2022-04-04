@@ -8,6 +8,11 @@ using UnityEngine.Rendering;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("PostProcess")]
+    public Volume postProcessVolcano;
+    public Volume postProcessForest;
+    public Volume postProcessCity;
+
     void Start()
     {
         

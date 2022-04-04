@@ -44,12 +44,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  money: 0
+  currentDistance: 0
+  recordDistance: 0
+  waterBonus: 0.2
+  zones: 0
   currentScene: 
-  lastLevelName: Level35
-  currentLevelID: 0
   notALevel:
   - MainMenu
   - Credits
+  - Hub
+  shownTitles: []
   defaultVolume: 0.9
   currentVolume: 0.9
   levelManager: {fileID: 0}

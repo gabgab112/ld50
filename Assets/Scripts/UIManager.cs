@@ -14,15 +14,20 @@ public class UIManager : MonoBehaviour
     public GameObject fadeIn;
     public GameObject gameOverPanel;
     public GameObject hurt;
-    [Space(20)]
 
     [Header("HUD")]
     [SerializeField] TextMeshProUGUI inputText;
     [SerializeField] UITypewriter actionInputTyping;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI distanceText;
+    [SerializeField] TextMeshProUGUI titleText;
 
-    [Space(20)]
+    [Header("GameOver")]
+    [SerializeField] TextMeshProUGUI gameOverDistance;
+    [SerializeField] TextMeshProUGUI gameOverHighScoreDistance;
+    [SerializeField] GameObject newHighScorePanel;
+
+    public Image volcanoQty;
 
     [Header("Pause")]
     public VolumeSlider volumeSlider;
@@ -69,12 +74,16 @@ public class UIManager : MonoBehaviour
 
         //UpdateInputText("");
         SetEmptyInputText();
-        UpdateMoney();
+
+        // Volcano
+        volcanoQty.fillAmount = 1;
 
         fadeIn.SetActive(true);
 
+        titleText.gameObject.SetActive(false);
+
         // HUD
-        if(!GameManager.Instance.notALevel.Contains(GameManager.Instance.currentScene))
+        if (!GameManager.Instance.notALevel.Contains(GameManager.Instance.currentScene))
         {
             hurt.SetActive(false);
             hudPanel.SetActive(true);
@@ -155,6 +164,11 @@ public class UIManager : MonoBehaviour
         if(GameManager.Instance != null)
             Destroy(GameManager.Instance.gameObject);
 
+        if (SoundManager.Instance != null)
+            Destroy(SoundManager.Instance.gameObject);
+
+        //SoundManager.Instance.MuteAllSoundtracks();
+
         bl_SceneLoaderUtils.GetLoader.LoadLevel("MainMenu");
         Destroy(gameObject);
     }
@@ -167,6 +181,24 @@ public class UIManager : MonoBehaviour
 
     public void GameOverUI()
     {
+        // Check high score
+        if (GameManager.Instance.currentDistance > GameManager.Instance.recordDistance)
+        {
+            GameManager.Instance.recordDistance = GameManager.Instance.currentDistance;
+            PlayerPrefs.SetInt("HighScore", GameManager.Instance.recordDistance);
+
+            newHighScorePanel.SetActive(true);
+        }
+        else
+        {
+            newHighScorePanel.SetActive(false);
+        }
+
+        // Texts
+        gameOverDistance.text = GameManager.Instance.currentDistance.ToString() + "m";
+        gameOverHighScoreDistance.text = "High score: " + GameManager.Instance.recordDistance + "m";
+
+        // Panels
         hurt.SetActive(false);
         hudPanel.SetActive(false);
         pausePanel.SetActive(false);
@@ -177,6 +209,15 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         GameManager.Instance.Restart();
+    }
+
+    public void ShowTitle(string _title)
+    {
+        if(GameManager.Instance.gameState != GameManager.GameState.GameOver)
+        {
+            titleText.text = _title;
+            titleText.gameObject.SetActive(true);
+        }
     }
 
 
@@ -218,10 +259,10 @@ public class UIManager : MonoBehaviour
             actionInputTyping.SetText("");
     }
 
-    public void UpdateMoney()
-    {
-        moneyText.text = GameManager.Instance.money.ToString() + "$";
-    }
+    //public void UpdateMoney()
+    //{
+    //    moneyText.text = GameManager.Instance.money.ToString() + "$";
+    //}
 
     public void UpdateDistance()
     {

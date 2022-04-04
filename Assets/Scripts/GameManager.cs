@@ -11,13 +11,21 @@ public class GameManager : MonoBehaviour
     public enum GameState { Start, Playing, Pause, GameOver };
 
     [Header("Gameplay")]
-    public int money;
+    //public int money;
     public int currentDistance;
-    //public int recordDistance;
+    public int recordDistance;
+    public float waterBonus = 0.5f;
+    public float volcanoProgress;
+
+    [Header("Zones")]
+    public Zones zones;
+    public enum Zones { Volcano, Forest, City };
 
     [Header("Scene")]
     public string currentScene;
     public List<string> notALevel = new List<string>();
+
+    public List<string> shownTitles = new List<string>();
 
     [Header("Volume")]
     public float defaultVolume = 0.9f;
@@ -93,24 +101,29 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(StartGame());
 
+            GetComponents();
+            recordDistance = PlayerPrefs.GetInt("HighScore");
+
+            // Level
             currentDistance = 0;
+            zones = Zones.Volcano;
 
-
-            // Get Current Level
-            //currentLevelID = Int32.Parse(currentScene.Remove(0, 5));
-
-            //SoundManager.Instance.Sounds("stop");
-
-            //GetComponents();
-
+            // UI
             UIManager.Instance.SetStartUI();
+
+            // Sound
+            SoundManager.Instance.ChangeSoundtrackByZone();
         }
         else
         {
             // Not a level
         }
+    }
 
-        //SoundManager.Instance.ChangeSoundtrackByLevel();
+    private void GetComponents()
+    {
+        if (GameObject.FindGameObjectWithTag("LevelManager"))
+            levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     IEnumerator StartGame()

@@ -7,6 +7,9 @@ TagManager:
   - GameManager
   - Ground
   - JumpRamp
+  - LevelManager
+  - DeathZone
+  - Coin
   layers:
   - Default
   - TransparentFX

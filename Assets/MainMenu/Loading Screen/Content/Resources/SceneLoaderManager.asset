@@ -22,7 +22,7 @@ MonoBehaviour:
       LoadingType: 1
       FakeLoadingTime: 1
       Backgrounds: []
-    - SceneName: Main
+    - SceneName: Main2D
       SceneAsset: {fileID: 102900000, guid: bd88611e256fba14a8002073374aa6fa, type: 3}
       DisplayName: Main
       Description: 
@@ -33,6 +33,22 @@ MonoBehaviour:
     - SceneName: Credits
       SceneAsset: {fileID: 102900000, guid: 2bad42782f9a4c64ea73647ae7243fa4, type: 3}
       DisplayName: Credits
+      Description: 
+      SkipType: 3
+      LoadingType: 1
+      FakeLoadingTime: 1
+      Backgrounds: []
+    - SceneName: MainMenu
+      SceneAsset: {fileID: 102900000, guid: 82edb78e21e026c418a0e60ffdf6b9dd, type: 3}
+      DisplayName: Credits
+      Description: 
+      SkipType: 3
+      LoadingType: 1
+      FakeLoadingTime: 1
+      Backgrounds: []
+    - SceneName: Main
+      SceneAsset: {fileID: 102900000, guid: 0adfcc0d5caaa294bb8ee54f1ac67208, type: 3}
+      DisplayName: Main
       Description: 
       SkipType: 3
       LoadingType: 1

@@ -7,11 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 94f24ad0d290a06499c9cc77292d1df8
+    guid: 82edb78e21e026c418a0e60ffdf6b9dd
   - enabled: 1
     path: Assets/Scenes/Main.unity
-    guid: bd88611e256fba14a8002073374aa6fa
+    guid: 0adfcc0d5caaa294bb8ee54f1ac67208
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/NotUsed/Credits.unity
     guid: 2bad42782f9a4c64ea73647ae7243fa4
   m_configObjects: {}

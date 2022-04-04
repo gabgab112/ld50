@@ -11,7 +11,7 @@ ScriptedImporter:
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapsPreserveCoverage: 0
@@ -89,31 +89,8 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
-  - name: Volcano
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 1422
-      width: 3542
-      height: 1254
-    spriteID: c964cecca5b43d445b66ac05f9d05a26
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 1240}
-  - name: NewMountain1
+  mosaicSpriteImportData:
+  - name: Forme 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -122,9 +99,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 3777
-      height: 1410
-    spriteID: 0ea3c6f0f137a304e8b88ccfab8aeb5b
+      width: 3840
+      height: 1638
+    spriteID: 63199ef9cdd342241aaf94cc29d5c851
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,40 +111,96 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -23, y: 4}
-  platformSettings: []
+    uvTransform: {x: 4, y: 4}
+  rigSpriteImportData:
+  - name: Mountain1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3682
+      height: 1864
+    spriteID: e1dff2c6751e9464fac5766098ad83b4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
   importedTextureWidth: 2048
-  importedTextureHeight: 2048
+  importedTextureHeight: 1024
   documentSize: {x: 3840, y: 2160}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
   textureActualWidth: 4096
-  textureActualHeight: 4096
+  textureActualHeight: 2048
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
-  mosaicPSDLayers: []
-  rigPSDLayers:
-  - name: NewMountain1
-    spriteName: NewMountain1
+  mosaicPSDLayers:
+  - name: Forme 1
+    spriteName: Forme 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 0ea3c6f0f137a304e8b88ccfab8aeb5b
-    layerID: 69
+    spriteID: 63199ef9cdd342241aaf94cc29d5c851
+    layerID: 79
     mosaicPosition: {x: 4, y: 4}
-  - name: Volcano
-    spriteName: Volcano
+  rigPSDLayers:
+  - name: Mountain1
+    spriteName: Mountain1
     isGroup: 0
     parentIndex: -1
-    spriteID: c964cecca5b43d445b66ac05f9d05a26
-    layerID: 64
-    mosaicPosition: {x: 4, y: 1422}
+    spriteID: e1dff2c6751e9464fac5766098ad83b4
+    layerID: 81
+    mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []
     parts: []

@@ -7,6 +7,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject homePanel;
     public GameObject playPanel;
     public GameObject optionsPanel;
+    public GameObject secondPanel;
+    public Animator UIAnimator;
 
     void Start()
     {
@@ -19,6 +21,12 @@ public class MainMenuManager : MonoBehaviour
     {
         // Load level
         bl_SceneLoaderUtils.GetLoader.LoadLevel(levelToLoad);
+    }
+
+    public void HideSecondPanel()
+    {
+        secondPanel.SetActive(false);
+        UIAnimator.SetTrigger("Show");
     }
 
     public void Quit()
