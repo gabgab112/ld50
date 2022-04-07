@@ -10,6 +10,12 @@ public class MainMenuManager : MonoBehaviour
     public GameObject secondPanel;
     public Animator UIAnimator;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hover;
+    [SerializeField] AudioClip click;
+    [SerializeField] AudioClip back;
+    [SerializeField] AudioClip special;
+
     void Start()
     {
         homePanel.SetActive(true);
@@ -33,4 +39,26 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    #region Buttons Sounds
+    public void Hover()
+    {
+        audioSource.PlayOneShot(hover);
+    }
+
+    public void Click()
+    {
+        audioSource.PlayOneShot(click);
+    }
+
+    public void Back()
+    {
+        audioSource.PlayOneShot(back);
+    }
+
+    public void SpecialButton()
+    {
+        audioSource.PlayOneShot(special);
+    }
+    #endregion
 }

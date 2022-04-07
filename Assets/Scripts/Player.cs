@@ -339,17 +339,20 @@ public class Player : MonoBehaviour
             // Volcano
             if (!isDead)
             {
-                UIManager.Instance.volcanoQty.fillAmount -= volcanoConsumption * Time.fixedDeltaTime;
-                GameManager.Instance.volcanoProgress = UIManager.Instance.volcanoQty.fillAmount;
-
-                if(GameManager.Instance.volcanoProgress <= 0)
+                if(GameManager.Instance.zones != GameManager.Zones.City)
                 {
-                    Die();
-                }
+                    UIManager.Instance.volcanoQty.fillAmount -= volcanoConsumption * Time.fixedDeltaTime;
+                    GameManager.Instance.volcanoProgress = UIManager.Instance.volcanoQty.fillAmount;
 
-                if (SoundManager.Instance.volcanoSrc.volume < 1)
-                {
-                    SoundManager.Instance.volcanoSrc.volume += volcanoConsumption * Time.fixedDeltaTime;
+                    if (GameManager.Instance.volcanoProgress <= 0)
+                    {
+                        Die();
+                    }
+
+                    if (SoundManager.Instance.volcanoSrc.volume < 1)
+                    {
+                        SoundManager.Instance.volcanoSrc.volume += volcanoConsumption * Time.fixedDeltaTime;
+                    }
                 }
             }
             else

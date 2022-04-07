@@ -172,6 +172,26 @@ public class UIManager : MonoBehaviour
         bl_SceneLoaderUtils.GetLoader.LoadLevel("MainMenu");
         Destroy(gameObject);
     }
+
+    public void LoadCredits()
+    {
+        AudioListener.pause = false;
+        Time.timeScale = 1;
+
+        //if(Player.Instance != null)  
+        //    Destroy(Player.Instance.gameObject);
+
+        if (GameManager.Instance != null)
+            Destroy(GameManager.Instance.gameObject);
+
+        if (SoundManager.Instance != null)
+            Destroy(SoundManager.Instance.gameObject);
+
+        //SoundManager.Instance.MuteAllSoundtracks();
+
+        bl_SceneLoaderUtils.GetLoader.LoadLevel("Credits");
+        Destroy(gameObject);
+    }
     #endregion
 
     public void HurtUI()
@@ -242,6 +262,15 @@ public class UIManager : MonoBehaviour
         audioSource.PlayOneShot(special);
     }
     #endregion
+
+    public void HidePanels()
+    {
+        // Panels
+        hurt.SetActive(false);
+        hudPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+    }
 
 
     #region Update Texts

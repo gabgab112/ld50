@@ -102,7 +102,7 @@ ScriptedImporter:
       y: 4
       width: 2119
       height: 1221
-    spriteID: cd0213337e8d4a14eabfcdc9742b0b03
+    spriteID: 7dd873c1f9992784db7db9775dee9afc
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -136,8 +136,8 @@ ScriptedImporter:
     spriteName: rock 1-1
     isGroup: 0
     parentIndex: -1
-    spriteID: cd0213337e8d4a14eabfcdc9742b0b03
-    layerID: 2
+    spriteID: 7dd873c1f9992784db7db9775dee9afc
+    layerID: 3
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []

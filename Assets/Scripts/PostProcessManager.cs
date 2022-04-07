@@ -41,6 +41,10 @@ public class PostProcessManager : MonoBehaviour
                     ppOld = GameManager.Instance.levelManager.postProcessForest;
                     ppNew = GameManager.Instance.levelManager.postProcessCity;
                     GameManager.Instance.zones = GameManager.Zones.City;
+
+                    UIManager.Instance.HidePanels();
+
+                    StartCoroutine(LoadCredits());
                 }
 
                 StartCoroutine(ChangeOldPP(1f, 0f, 2f));
@@ -74,5 +78,12 @@ public class PostProcessManager : MonoBehaviour
             yield return null;
         }
         ppNew.weight = v_end;
+    }
+
+    IEnumerator LoadCredits()
+    {
+        yield return new WaitForSeconds(8f);
+
+        UIManager.Instance.LoadCredits();
     }
 }
